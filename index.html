@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Terminal.js Demo</title>
+    <title>Codi</title>
     <style>
       body {
         background: black;
@@ -20,20 +20,29 @@
     <link rel="import" href="fake-terminal.html">
   </head>
   <body>
-    <h1>Terminal.js Demo</h1>
-    <fake-terminal>guest@terminal.js &sim; &gt;</fake-terminal>
+<!--     <h1>Terminal.js Demo</h1>-->
+    <p> Last login: Thu Mar 12 23:38:26 on 192.168.1.1 <p>
+    <fake-terminal>_@c0di.com &sim; &gt;</fake-terminal>
     <script>
       var commands = {};
       
       commands.help = function() {
         var output = "<div>" +
                      "<ul>" +
-                     "<li><strong>help</strong> - display this help.</li>" +
-                     "<li><strong>hello NAME</strong> - displays a greeting for NAME.</li>" +
-                     "<li><strong>weather LOCATION</strong> - show weather for LOCATION</li>" +
+                     "<li><strong>whois</strong> - whois searches for an Internet directory entry for an  identifier  which is either a name or a handle </li>" +
+                     "<li><strong>hello <NAME> </strong> - displays a greeting for <NAME> </li>" +
+                     "<li><strong>weather <LOCATION> </strong> - show weather for <LOCATION> </li>" +
                      "</ul></div>";
         return output;
       };
+
+      comands.whois = function(){
+        var output = "<div>" +
+                      "<ul>" +
+                      ""
+                      ""
+                      "</ul></div>"
+      }
 
       commands.hello = function(args) {
         if(args.length < 2) return "<p>Hello. Why don't you tell me your name?</p>";
