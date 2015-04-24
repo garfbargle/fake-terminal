@@ -18,31 +18,55 @@
     </style>
     <script src="http://avgp.github.io/webcomponentsjs/webcomponents.min.js"></script>
     <link rel="import" href="fake-terminal.html">
+
+    <!-- Fav Icon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
   </head>
   <body>
-<!--     <h1>Terminal.js Demo</h1>-->
-    <p> Last login: Thu Mar 12 23:38:26 on 192.168.1.1 <p>
-    <fake-terminal>_@c0di.com &sim; &gt;</fake-terminal>
+
+<!--     <h5> Last login: Thu Mar 12 23:38:26 on 192.168.1.1 </h5>-->    
+  <fake-terminal>guest@c0di.com:&sim;$ </fake-terminal>
     <script>
+
       var commands = {};
       
       commands.help = function() {
-        var output = "<div>" +
+
+        var output = "<p>Commands</p> <div>" +
                      "<ul>" +
-                     "<li><strong>whois</strong> - whois searches for an Internet directory entry for an  identifier  which is either a name or a handle </li>" +
-                     "<li><strong>hello <NAME> </strong> - displays a greeting for <NAME> </li>" +
-                     "<li><strong>weather <LOCATION> </strong> - show weather for <LOCATION> </li>" +
+                     "<li><strong>whois</strong> - whois </li>" +
+                     "<li><strong>social</strong> - relevant social media links </li>" +
+                     "<li><strong>phone</strong> - phone number </li>" +
+                     "<li><strong>email</strong> - email address </li>" +
+                     "<li><strong>bitcoin</strong> - bitcoin receiving address </li>" +
+                     "<li><strong>hello NAME </strong> - displays a greeting for NAME </li>" +
+                     "<li><strong>weather LOCATION </strong> - show weather for LOCATION </li>" +
                      "</ul></div>";
         return output;
       };
 
-      comands.whois = function(){
-        var output = "<div>" +
-                      "<ul>" +
-                      ""
-                      ""
-                      "</ul></div>"
-      }
+      commands.whois = function(){ 
+        var linkedInImageSmall = "<img style=\"vertical-align: middle\" height=\"20\" width=\"20\" src=\"https://media.licdn.com/mpr/mpr/shrink_80_80/p/5/005/054/233/21283ee.jpg\">";
+        var output = "<p> Codi Bonney "+ linkedInImageSmall + "</p>"
+        return output;
+      };
 
       commands.hello = function(args) {
         if(args.length < 2) return "<p>Hello. Why don't you tell me your name?</p>";
@@ -61,6 +85,48 @@
                weather.weather[0].description + ", " + 
                weather.main.temp + " &deg;C</p>"
       };
+
+      commands.pwd = function() {
+          return "<p>/home/guest</p>";
+      };
+
+      commands.ip = function() {
+          return "<p>"+myIPAddress+"</p>";
+      };
+
+
+      commands.email = function(){
+          var emailLink = "<a href=\"mailto:_@c0di.com?subject=Hi&body=Hi c0di,\">_@c0di.com</a>";
+          return emailLink;
+      }
+
+      commands.phone = function(){
+          var phoneLink = "<a href=\"tel:4242422634\">(424) 424 - CODI</a>";
+          return phoneLink;
+      }
+
+      commands.social = function(){
+          var linkedInLink = "<a href=\"https://www.linkedin.com/in/codibonney\"> LinkedIn <\/a>";
+          var facebookLink = "<a href=\"https://www.facebook.com/codibonney\"> Facebook <\/a>";
+          var twitterLink = "<a href=\"https://twitter.com/CodiB\"> Twitter <\/a>";
+          var soundcloudLink = "<a href=\"https://soundcloud.com/garfbargle\"> Soundcloud <\/a>";
+
+          var output = "<div>" +
+                       "<ul>"+
+                       "<li>"+linkedInLink+"</li>" +
+                       "<li>"+facebookLink+"</li>" +
+                       "<li>"+twitterLink+"</li>" +
+                       "<li>"+soundcloudLink+"</li>" +
+                       "</ul></div>";
+          return output;
+      }
+
+      commands.bitcoin = function(){
+          var bitcoinAddress = "1NZmuThRdoH8rqnrY7WqS7N7ibgSyVMm9k";
+          var bitcoinAddressQR = "<img style=\"vertical-align: middle\" height=\"100\" width=\"100\" src=\"btc.png\">";
+          var output = "<p>&nbsp;" +bitcoinAddress+ "&nbsp;" + bitcoinAddressQR + "</p>";
+          return output;
+      }
 
       document.querySelector("fake-terminal").commands = commands;
     </script>
