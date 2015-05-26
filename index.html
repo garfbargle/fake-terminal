@@ -59,6 +59,7 @@
                      "<li><strong>bitcoin</strong> - bitcoin receiving address </li>" +
                      "<li><strong>hello NAME </strong> - displays a greeting for NAME </li>" +
                      "<li><strong>weather LOCATION </strong> - show weather for LOCATION </li>" +
+                     "<li><strong>resume</strong> - view resume" +
                      "</ul></div>";
         return output;
       };
@@ -126,6 +127,13 @@
           var bitcoinAddress = "1NZmuThRdoH8rqnrY7WqS7N7ibgSyVMm9k";
           var bitcoinAddressQR = "<img style=\"vertical-align: middle\" height=\"100\" width=\"100\" src=\"btc.png\">";
           var output = "<p>&nbsp;" +bitcoinAddress+ "&nbsp;" + bitcoinAddressQR + "</p>";
+          return output;
+      }
+
+      commands.resume = function(){
+          var resumeLink = "<a href=\"http://www.c0di.com/resume/resume.pdf\"> Resume <\/a>";
+          var resumeiFrame = "<iframe src=\"http://docs.google.com/gview?url=http://c0di.com/resume/resume.pdf&embedded=true\" style=\"width:600px; height:500px;\" frameborder=\"0\"></iframe>";
+          var output = resumeiFrame;
           return output;
       }
 
